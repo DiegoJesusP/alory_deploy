@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { AxiosError } from "axios";
-import { useNavigate } from "react-router";
 import { CalendarClock, CircleCheck, Clock3, Users } from "lucide-react";
 import { toast } from "sonner";
 import DashboardLayout from "@/components/Layout/DashboardLayout";
@@ -122,7 +121,6 @@ const formatDateAndTime = (value: string) => {
 };
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const { user } = useAuth();
 
   const [stats, setStats] = useState<EmployeeStats>(EMPTY_STATS);
