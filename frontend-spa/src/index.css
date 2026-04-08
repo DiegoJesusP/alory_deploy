@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Marcellus&family=Nunito+Sans:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+	--font-spa-display: "Cormorant Garamond", serif;
+	--font-spa-accent: "Marcellus", serif;
+	--font-spa-body: "Nunito Sans", sans-serif;
+}
+
+@keyframes modalOverlayIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes modalOverlayOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes modalPanelIn {
+	from {
+		opacity: 0;
+		transform: translateY(8px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes modalPanelOut {
+	from {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(6px) scale(0.985);
+	}
+}
+
+.modal-overlay-enter {
+	pointer-events: auto;
+	animation: modalOverlayIn 180ms ease-out forwards;
+}
+
+.modal-overlay-exit {
+	pointer-events: none;
+	animation: modalOverlayOut 180ms ease-in forwards;
+}
+
+.modal-panel-enter {
+	animation: modalPanelIn 200ms ease-out forwards;
+}
+
+.modal-panel-exit {
+	animation: modalPanelOut 180ms ease-in forwards;
+}
+
+@keyframes landingLoginFade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes loginEntryFromLanding {
+	0% {
+		opacity: 0;
+		transform: translateY(10px) scale(0.987);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+.landing-login-transition {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	pointer-events: none;
+	background: rgba(27, 20, 11, 0.5);
+	animation: landingLoginFade 200ms ease-out forwards;
+}
+
+.login-enter-from-landing {
+	animation: loginEntryFromLanding 200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.landing-login-transition,
+	.login-enter-from-landing {
+		animation: none;
+	}
+}
